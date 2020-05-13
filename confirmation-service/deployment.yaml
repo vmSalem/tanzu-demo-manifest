@@ -51,9 +51,9 @@ spec:
                   key: token
           resources:
             requests:
-              memory: 1024Mi
+              memory: 256Mi
               cpu: 500m
             limits:
-              memory: 1024Mi
+              memory: 256Mi
           ports:
             - containerPort: 8080
