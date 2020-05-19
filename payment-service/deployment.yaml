@@ -38,17 +38,12 @@ spec:
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rabbit-rabbitmq
+                  name: rabbit
                   key: rabbitmq-password
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
               value: 'true'
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
-              value: 'https://surf.wavefront.com'
-            - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: wavefront
-                  key: token
+              value: 'proxy://wavefront-proxy:2878'
           livenessProbe:
             initialDelaySeconds: 15
             periodSeconds: 3

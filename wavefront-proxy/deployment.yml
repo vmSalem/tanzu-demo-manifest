@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wavefront-proxy
+    name: wavefront-proxy
+  name: wavefront-proxy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wavefront-proxy
+  template:
+    metadata:
+      labels:
+        app: wavefront-proxy
+    spec:
+      containers:
+        - name: wavefront-proxy
+          image: wavefronthq/proxy:6.4
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: WAVEFRONT_URL
+              value: 'https://surf.wavefront.com'
+            - name: WAVEFRONT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: wavefront
+                  key: token
+          ports:
+            - containerPort: 2878
+              protocol: TCP
+            # Zipkin Tracing Port
+            - containerPort: 9411
+              protocol: TCP
+          securityContext:
+            privileged: false

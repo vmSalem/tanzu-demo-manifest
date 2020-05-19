@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: confirmation-service
-          image: docker.io/dhubau/confirmation-service:b23.20200513.083200
+          image: docker.io/dhubau/confirmation-service:latest
           imagePullPolicy: Always
           env:
             - name: NODE_NAME
@@ -38,17 +38,12 @@ spec:
             - name: SPRING_RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rabbit-rabbitmq
+                  name: rabbit
                   key: rabbitmq-password
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
               value: 'true'
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
-              value: 'https://surf.wavefront.com'
-            - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: wavefront
-                  key: token
+              value: 'proxy://wavefront-proxy:2878'
           resources:
             requests:
               memory: 256Mi
