@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wavefront-proxy
+    name: wavefront-proxy
+  name: wavefront-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wavefront-proxy
+  template:
+    metadata:
+      labels:
+        app: wavefront-proxy
+    spec:
+      containers:
+        - name: wavefront-proxy
+          image: wavefronthq/proxy:7.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: WAVEFRONT_URL
+              value: 'https://surf.wavefront.com'
+            - name: WAVEFRONT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: wavefront
+                  key: token
+          ports:
+            - containerPort: 2878
+              protocol: TCP

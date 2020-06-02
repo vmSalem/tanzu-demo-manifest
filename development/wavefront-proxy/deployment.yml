@@ -6,7 +6,6 @@ metadata:
     app: wavefront-proxy
     name: wavefront-proxy
   name: wavefront-proxy
-  namespace: default
 spec:
   replicas: 1
   selector:
@@ -32,8 +31,3 @@ spec:
           ports:
             - containerPort: 2878
               protocol: TCP
-            # Zipkin Tracing Port
-            - containerPort: 9411
-              protocol: TCP
-          securityContext:
-            privileged: false
