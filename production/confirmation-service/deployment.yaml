@@ -44,6 +44,8 @@ spec:
               value: 'true'
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
               value: 'proxy://wavefront-proxy:2878'
+            - name: WAVEFRONT_APPLICATION_NAME
+              value: tanzu-demo-prod
           resources:
             requests:
               memory: 256Mi
