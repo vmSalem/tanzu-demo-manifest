@@ -58,13 +58,13 @@ spec:
             - name: WAVEFRONT_APPLICATION_NAME
               value: tanzu-demo-prod
           livenessProbe:
-            initialDelaySeconds: 15
+            initialDelaySeconds: 30
             periodSeconds: 3
             httpGet:
               path: /actuator/health/liveness
               port: 8080
           readinessProbe:
-            initialDelaySeconds: 20
+            initialDelaySeconds: 30
             periodSeconds: 10
             httpGet:
               path: /actuator/health/readiness
