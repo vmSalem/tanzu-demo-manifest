@@ -38,7 +38,7 @@ spec:
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: redis
+                  name: redis-production
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
               value: rabbit-production-rabbitmq
