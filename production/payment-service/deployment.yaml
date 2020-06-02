@@ -32,7 +32,7 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit-rabbitmq
+              value: rabbit-production-rabbitmq
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD

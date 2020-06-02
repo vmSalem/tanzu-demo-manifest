@@ -34,14 +34,14 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_REDIS_HOST
-              value: redis-master
+              value: redis-production-master
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: redis
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit-rabbitmq
+              value: rabbit-production-rabbitmq
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
