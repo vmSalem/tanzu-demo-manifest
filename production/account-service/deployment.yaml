@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: account-service
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
