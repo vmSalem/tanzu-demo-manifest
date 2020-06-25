@@ -33,14 +33,14 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_REDIS_HOST
-              value: redis-development-master
+              value: redis-development-headless.data.svc.cluster.local
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: redis-development
+                  name: redis
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit-development-rabbitmq
+              value: rabbit-development-rabbitmq-headless.data.svc.cluster.local
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
