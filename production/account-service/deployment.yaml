@@ -34,7 +34,7 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_REDIS_HOST
-              value: redis-production-headless.data.svc.cluster.local
+              value: redis-production-master.data.svc.cluster.local
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
