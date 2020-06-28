@@ -29,5 +29,6 @@ spec:
                   name: wavefront
                   key: token
           ports:
-            - containerPort: 2878
+            - name: tcp-metrics
+              containerPort: 2878
               protocol: TCP
