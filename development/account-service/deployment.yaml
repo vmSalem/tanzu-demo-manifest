@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: account-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: account-service
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: account-service
-          image: docker.io/dhubau/account-service:b3.20200603.165458
+          image: docker.io/dhubau/account-service:b2.20200629.120524
           imagePullPolicy: Always
           env:
             - name: SERVER_PORT

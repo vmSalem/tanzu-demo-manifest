@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: account-service
-          image: docker.io/dhubau/account-service:b1.20200616.084351
+          image: docker.io/dhubau/account-service:b3.20200629.134052
           imagePullPolicy: Always
           env:
             - name: SERVER_PORT
