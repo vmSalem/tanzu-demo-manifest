@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: account-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: account-service
@@ -33,14 +33,14 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_REDIS_HOST
-              value: redis-development-master.dev-data.svc.cluster.local
+              value: redis-development-master.data.svc.cluster.local
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: redis
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit-development-rabbitmq.dev-data.svc.cluster.local
+              value: rabbit-development-rabbitmq.data.svc.cluster.local
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
