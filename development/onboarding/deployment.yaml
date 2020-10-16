@@ -16,6 +16,11 @@ spec:
         - name: onboarding
           image: docker.io/dhubau/onboarding:latest
           imagePullPolicy: Always
+          env:
+            - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
+              value: 'true'
+            - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
+              value: 'proxy://wavefront-proxy:2878'
           livenessProbe:
             initialDelaySeconds: 30
             periodSeconds: 3
