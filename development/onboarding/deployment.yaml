@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: onboarding
-          image: docker.io/dhubau/onboarding:latest
+          image: dhubau/onboarding:qvantel-b2.20201021.122222
           imagePullPolicy: Always
           env:
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
