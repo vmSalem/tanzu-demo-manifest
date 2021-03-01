@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: WAVEFRONT_URL
-              value: 'https://surf.wavefront.com'
+              value: 'https://vmware.wavefront.com'
             - name: WAVEFRONT_TOKEN
               valueFrom:
                 secretKeyRef:
