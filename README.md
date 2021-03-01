@@ -1,2 +1,2 @@
-# tanzu-demo-manifest
-# tanzu-demo-manifest
+# tanzu-demo-manifests
+
