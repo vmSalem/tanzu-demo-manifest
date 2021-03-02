@@ -4,6 +4,7 @@ metadata:
   name: account-service
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: account-service
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
         - name: account-service
-          image: docker.io/dhubau/account-service:b2.20200629.120524
+          image: registry.vmsalem.local/tbs-workload/account-service:b1.20210302.163045
           imagePullPolicy: Always
           env:
             - name: SERVER_PORT
@@ -33,14 +34,14 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SPRING_REDIS_HOST
-              value: redis-development-master.data.svc.cluster.local
+              value: redis-production-master.data.svc.cluster.local
             - name: SPRING_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: redis
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit-development-rabbitmq.data.svc.cluster.local
+              value: rabbit-production-rabbitmq.data.svc.cluster.local
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
@@ -54,6 +55,8 @@ spec:
               value: 'true'
             - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
               value: 'proxy://wavefront-proxy:2878'
+            - name: WAVEFRONT_APPLICATION_NAME
+              value: tanzu-demo-prod
           livenessProbe:
             initialDelaySeconds: 30
             periodSeconds: 3
