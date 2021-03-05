@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: account-service
-          image: registry.vmsalem.local/tbs-workload/account-service:b2.20210303.075659
+          image: registry.vmsalem.local/tbs-workload/account-service:b1.20210305.202120
           imagePullPolicy: Always
           env:
             - name: SERVER_PORT
