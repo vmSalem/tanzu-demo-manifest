@@ -41,7 +41,7 @@ spec:
                   name: redis
                   key: redis-password
             - name: SPRING_RABBITMQ_HOST
-              value: rabbit.prod-data.svc.cluster.local
+              value: rabbitmq.prod-data.svc.cluster.local
             - name: SPRING_RABBITMQ_USERNAME
               value: user
             - name: SPRING_RABBITMQ_PASSWORD
