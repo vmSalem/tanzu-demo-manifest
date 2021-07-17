@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: wavefront-proxy
-          image: wavefronthq/proxy:7.0
+          image: wavefronthq/proxy:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: WAVEFRONT_URL
