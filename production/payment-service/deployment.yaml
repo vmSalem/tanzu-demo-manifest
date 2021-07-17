@@ -58,11 +58,5 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
-          resources:
-            requests:
-              memory: 768Mi
-              cpu: 500m
-            limits:
-              memory: 768Mi
           ports:
             - containerPort: 8080
